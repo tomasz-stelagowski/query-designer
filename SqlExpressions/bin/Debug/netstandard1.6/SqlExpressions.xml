@@ -1,0 +1,1429 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SqlExpressions</name>
+    </assembly>
+    <members>
+        <member name="T:SqlExpressions.Expressions.IExpressionTransferObject">
+            <summary>
+            Interface implemented by all tranfer objects
+            </summary>
+        </member>
+        <member name="P:SqlExpressions.Expressions.IExpressionTransferObject.TransferObjectId">
+            <summary>
+            Gets the transfer object identifier.
+            </summary>
+            <value>
+            The transfer object identifier.
+            </value>
+        </member>
+        <member name="T:SqlExpressions.Expressions.ISource">
+            <summary>
+            Type representing named source
+            </summary>
+        </member>
+        <member name="P:SqlExpressions.Expressions.ISource.CallName">
+            <summary>
+            Gets the name of the source.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="T:SqlExpressions.Expressions.ISqlVisitor`1">
+            <summary>
+            Type representing visitor visiting sqlexpression hierarchy
+            </summary>
+            <typeparam name="T">Return type</typeparam>
+        </member>
+        <member name="M:SqlExpressions.Expressions.ISqlVisitor`1.Visit(SqlExpressions.Expressions.SqlExpression)">
+            <summary>
+            Visits the specified SQL expression.
+            </summary>
+            <param name="sqlExpression">The SQL expression.</param>
+            <returns>Returns processed value from espression</returns>
+        </member>
+        <member name="M:SqlExpressions.Expressions.ISqlVisitor`1.Visit(SqlExpressions.Expressions.SqlBinaryExpression)">
+            <summary>
+            Visits the specified SQL binary expression.
+            </summary>
+            <param name="sqlBinaryExpression">The SQL binary expression.</param>
+            <returns>Returns processed value from espression</returns>
+        </member>
+        <member name="M:SqlExpressions.Expressions.ISqlVisitor`1.Visit(SqlExpressions.Expressions.SqlUnaryExpression)">
+            <summary>
+            Visits the specified SQL unary expression.
+            </summary>
+            <param name="sqlUnaryExpression">The SQL unary expression.</param>
+            <returns>Returns processed value from espression</returns>
+        </member>
+        <member name="M:SqlExpressions.Expressions.ISqlVisitor`1.Visit(SqlExpressions.Expressions.SqlConstantExpression)">
+            <summary>
+            Visits the specified SQL constant expression.
+            </summary>
+            <param name="sqlConstantExpression">The SQL constant expression.</param>
+            <returns>Returns processed value from espression</returns>
+        </member>
+        <member name="M:SqlExpressions.Expressions.ISqlVisitor`1.Visit(SqlExpressions.Expressions.SqlColumnExpression)">
+            <summary>
+            Visits the specified SQL column expression.
+            </summary>
+            <param name="sqlColumnExpression">The SQL column expression.</param>
+            <returns>Returns processed value from espression</returns>
+        </member>
+        <member name="M:SqlExpressions.Expressions.ISqlVisitor`1.Visit(SqlExpressions.Expressions.SqlTableExpression)">
+            <summary>
+            Visits the specified SQL table expression.
+            </summary>
+            <param name="sqlTableExpression">The SQL table expression.</param>
+            <returns>Returns processed value from espression</returns>
+        </member>
+        <member name="M:SqlExpressions.Expressions.ISqlVisitor`1.Visit(SqlExpressions.Expressions.SqlQueryExpression)">
+            <summary>
+            Visits the specified SQL query expression.
+            </summary>
+            <param name="sqlQueryExpression">The SQL query expression.</param>
+            <returns>Returns processed value from espression</returns>
+        </member>
+        <member name="M:SqlExpressions.Expressions.ISqlVisitor`1.Visit(SqlExpressions.Expressions.SqlAnnotation)">
+            <summary>
+            Visits the specified SQL annotation.
+            </summary>
+            <param name="sqlAnnotation">The SQL annotation.</param>
+            <returns>processed value from espression</returns>
+        </member>
+        <member name="M:SqlExpressions.Expressions.ISqlVisitor`1.Visit(SqlExpressions.Expressions.SqlJoinExpression)">
+            <summary>
+            Visits the specified SQL join expression.
+            </summary>
+            <param name="sqlJoinExpression">The SQL join expression.</param>
+            <returns>Returns processed value from espression</returns>
+        </member>
+        <member name="M:SqlExpressions.Expressions.ISqlVisitor`1.Visit(SqlExpressions.Expressions.SqlAliasExpression)">
+            <summary>
+            Visits the specified SQL alias expression.
+            </summary>
+            <param name="sqlAliasExpression">The SQL alias expression.</param>
+            <returns>Returns processed value from espression</returns>
+        </member>
+        <member name="M:SqlExpressions.Expressions.ISqlVisitor`1.Visit(SqlExpressions.Expressions.SqlParameterExpression)">
+            <summary>
+            Visits the specified SQL parameter expression.
+            </summary>
+            <param name="sqlParameterExpression">The SQL paramter expression.</param>
+            <returns>Returns processed value from espression</returns>
+        </member>
+        <member name="M:SqlExpressions.Expressions.ISqlVisitor`1.Visit(SqlExpressions.Expressions.SqlOrderedExpression)">
+            <summary>
+            Visits the specified SQL ordered expression.
+            </summary>
+            <param name="sqlOrderedExpression">The SQL ordered expression.</param>
+            <returns>Returns processed value from espression</returns>
+        </member>
+        <member name="T:SqlExpressions.Expressions.OrderType">
+            <summary>
+            Enum representing type of order
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.OrderType.Ascending">
+            <summary>
+            The ascending order
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.OrderType.Descending">
+            <summary>
+            The descending order
+            </summary>
+        </member>
+        <member name="T:SqlExpressions.Expressions.SqlAliasExpression">
+            <summary>
+            Type representing alias
+            </summary>
+            <seealso cref="T:SqlExpressions.Expressions.SqlExpression" />
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlAliasExpression.ReturnType">
+            <summary>
+            Gets the return type of the expression.
+            </summary>
+            <value>
+            The type of the return.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlAliasExpression.ExpressionType">
+            <summary>
+            Gets the type of the expression.
+            </summary>
+            <value>
+            The type of the expression.
+            </value>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlAliasExpression.Accept``1(SqlExpressions.Expressions.ISqlVisitor{``0})">
+            <summary>
+            Accepts the specified visitor.
+            </summary>
+            <typeparam name="T">Return type</typeparam>
+            <param name="visitor">The visitor.</param>
+            <returns>
+            Returns processed value from expression
+            </returns>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlAliasExpression.InnerExpression">
+            <summary>
+            Gets the inner expression.
+            </summary>
+            <value>
+            The inner expression.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlAliasExpression.Alias">
+            <summary>
+            Gets the alias.
+            </summary>
+            <value>
+            The alias.
+            </value>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlAliasExpression.#ctor(SqlExpressions.Expressions.SqlExpression,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlExpressions.Expressions.SqlAliasExpression"/> class.
+            </summary>
+            <param name="innerExpression">The inner expression.</param>
+            <param name="alias">The alias.</param>
+        </member>
+        <member name="T:SqlExpressions.Expressions.SqlAnnotation">
+            <summary>
+            Represents sql annotation
+            </summary>
+            <seealso cref="T:SqlExpressions.Expressions.SqlExpression" />
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlAnnotation.ReturnType">
+            <summary>
+            Gets the return type of the expression
+            </summary>
+            <value>
+            The type of the return.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlAnnotation.ExpressionType">
+            <summary>
+            Gets the type of the expression.
+            </summary>
+            <value>
+            The type of the expression.
+            </value>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlAnnotation.Accept``1(SqlExpressions.Expressions.ISqlVisitor{``0})">
+            <summary>
+            Accepts the specified visitor.
+            </summary>
+            <typeparam name="T">Return type</typeparam>
+            <param name="visitor">The visitor.</param>
+            <returns>Returns processed value from expression</returns>
+        </member>
+        <member name="T:SqlExpressions.Expressions.SqlBinaryExpression">
+            <summary>
+            Type representing any binary expression
+            </summary>
+            <seealso cref="T:SqlExpressions.Expressions.SqlExpression" />
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlBinaryExpression.ReturnType">
+            <summary>
+            Gets the return type of the expression
+            </summary>
+            <value>
+            The type of the return.
+            </value>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlBinaryExpression.ExpressionType">
+            <summary>
+            Gets the type of the expression.
+            </summary>
+            <value>
+            The type of the expression.
+            </value>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlBinaryExpression.Accept``1(SqlExpressions.Expressions.ISqlVisitor{``0})">
+            <summary>
+            Accepts the specified visitor.
+            </summary>
+            <typeparam name="T">Return type</typeparam>
+            <param name="visitor">The visitor.</param>
+            <returns>Returns processed value from expression</returns>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlBinaryExpression.Left">
+            <summary>
+            Gets the left expression.
+            </summary>
+            <value>
+            The left.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlBinaryExpression.Right">
+            <summary>
+            Gets the right expression.
+            </summary>
+            <value>
+            The right.
+            </value>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlBinaryExpression.#ctor(SqlExpressions.Expressions.SqlExpressionType,SqlExpressions.Expressions.SqlExpression,SqlExpressions.Expressions.SqlExpression)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlExpressions.Expressions.SqlBinaryExpression"/> class.
+            </summary>
+            <param name="expressionType">Type of the binary expression.</param>
+            <param name="left">The left expression.</param>
+            <param name="right">The right expression.</param>
+        </member>
+        <member name="T:SqlExpressions.Expressions.SqlColumnExpression">
+            <summary>
+            Expression representing column
+            </summary>
+            <seealso cref="T:SqlExpressions.Expressions.SqlExpression" />
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlColumnExpression.ReturnType">
+            <summary>
+            Gets the return type of the expression
+            </summary>
+            <value>
+            The type of the return.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlColumnExpression.ExpressionType">
+            <summary>
+            Gets the type of the expression.
+            </summary>
+            <value>
+            The type of the expression.
+            </value>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlColumnExpression.Accept``1(SqlExpressions.Expressions.ISqlVisitor{``0})">
+            <summary>
+            Accepts the specified visitor.
+            </summary>
+            <typeparam name="T">Return type</typeparam>
+            <param name="visitor">The visitor.</param>
+            <returns>Returns processed value from expression</returns>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlColumnExpression.Source">
+            <summary>
+            Gets the column source.
+            </summary>
+            <value>
+            The source.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlColumnExpression.Name">
+            <summary>
+            Gets the column name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlColumnExpression.#ctor(SqlExpressions.Expressions.SqlType,SqlExpressions.Expressions.ISource,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlExpressions.Expressions.SqlColumnExpression"/> class.
+            </summary>
+            <param name="returnType">Type of the column.</param>
+            <param name="source">The column source.</param>
+            <param name="name">The column name.</param>
+        </member>
+        <member name="T:SqlExpressions.Expressions.SqlConstantExpression">
+            <summary>
+            Expression representing constant value.
+            </summary>
+            <seealso cref="T:SqlExpressions.Expressions.SqlExpression" />
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlConstantExpression.ReturnType">
+            <summary>
+            Gets the return type of the expression.
+            </summary>
+            <value>
+            The type of the return..
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlConstantExpression.ExpressionType">
+            <summary>
+            Gets the type of the expression.
+            </summary>
+            <value>
+            The type of the expression.
+            </value>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlConstantExpression.Accept``1(SqlExpressions.Expressions.ISqlVisitor{``0})">
+            <summary>
+            Accepts the specified visitor.
+            </summary>
+            <typeparam name="T">Return type.</typeparam>
+            <param name="visitor">The visitor.</param>
+            <returns>Returns processed value from expression.</returns>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlConstantExpression.Constant">
+            <summary>
+            Constant value.
+            </summary>
+            <value>
+            The constant.
+            </value>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlConstantExpression.#ctor(SqlExpressions.Expressions.SqlType,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlExpressions.Expressions.SqlConstantExpression"/> class.
+            </summary>
+            <param name="returnType">Type of the constant.</param>
+            <param name="constant">The constant.</param>
+        </member>
+        <member name="T:SqlExpressions.Expressions.SqlExpression">
+            <summary>
+            Base class for all types representing expressions.
+            </summary>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlExpression.ReturnType">
+            <summary>
+            Gets the return type of the expression.
+            </summary>
+            <value>
+            The type of the return.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlExpression.ExpressionType">
+            <summary>
+            Gets the type of the expression.
+            </summary>
+            <value>
+            The type of the expression.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlExpression.TransferObjectId">
+            <summary>
+            Gets the transfer object identifier.
+            </summary>
+            <value>
+            The transfer object identifier.
+            </value>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlExpression.Accept``1(SqlExpressions.Expressions.ISqlVisitor{``0})">
+            <summary>
+            Accepts the specified visitor.
+            </summary>
+            <typeparam name="T">Return type</typeparam>
+            <param name="visitor">The visitor.</param>
+            <returns>Returns processed value from expression</returns>
+        </member>
+        <member name="T:SqlExpressions.Expressions.SqlExpressionType">
+            <summary>
+            Represents type of the expression
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.Table">
+            <summary>
+            The table
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.Query">
+            <summary>
+            The query
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.Column">
+            <summary>
+            The column
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.Join">
+            <summary>
+            The join
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.Constant">
+            <summary>
+            The constant
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.Annotation">
+            <summary>
+            The annotation
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.Count">
+            <summary>
+            The count
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.Sum">
+            <summary>
+            The sum
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.Average">
+            <summary>
+            The average
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.Min">
+            <summary>
+            The minimum
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.Max">
+            <summary>
+            The maximum
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.And">
+            <summary>
+            The and
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.Or">
+            <summary>
+            The or
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.Equal">
+            <summary>
+            The equal
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.NotEqual">
+            <summary>
+            The not equal
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.Smaller">
+            <summary>
+            The smaller
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.Greater">
+            <summary>
+            The greater
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.SmallerEqual">
+            <summary>
+            The smaller equal
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.GreaterEqual">
+            <summary>
+            The greater equal
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.In">
+            <summary>
+            The in
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.Like">
+            <summary>
+            The like
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.Between">
+            <summary>
+            The between
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.IsNull">
+            <summary>
+            The is null
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.Coalesce">
+            <summary>
+            The coalesce
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.Alias">
+            <summary>
+            The alias
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.Parameter">
+            <summary>
+            The parameter
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlExpressionType.Ordered">
+            <summary>
+            The ordered expression
+            </summary>
+        </member>
+        <member name="T:SqlExpressions.Expressions.SqlJoinExpression">
+            <summary>
+            Type representing join clause
+            </summary>
+            <seealso cref="T:SqlExpressions.Expressions.SqlExpression" />
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlJoinExpression.ReturnType">
+            <summary>
+            Gets the return type of the expression
+            </summary>
+            <value>
+            The type of the return.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlJoinExpression.ExpressionType">
+            <summary>
+            Gets the type of the expression.
+            </summary>
+            <value>
+            The type of the expression.
+            </value>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlJoinExpression.Accept``1(SqlExpressions.Expressions.ISqlVisitor{``0})">
+            <summary>
+            Accepts the specified visitor.
+            </summary>
+            <typeparam name="T">Return type</typeparam>
+            <param name="visitor">The visitor.</param>
+            <returns>Returns processed value from expression</returns>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlJoinExpression.Left">
+            <summary>
+            Gets the left expression.
+            </summary>
+            <value>
+            The left.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlJoinExpression.Right">
+            <summary>
+            Gets the right expression.
+            </summary>
+            <value>
+            The right.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlJoinExpression.Condition">
+            <summary>
+            Gets the "on" condition.
+            </summary>
+            <value>
+            The condition.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlJoinExpression.JoinType">
+            <summary>
+            Gets the type of the join.
+            </summary>
+            <value>
+            The type of the join.
+            </value>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlJoinExpression.#ctor(SqlExpressions.Expressions.SqlExpression,SqlExpressions.Expressions.SqlExpression,SqlExpressions.Expressions.SqlExpression,SqlExpressions.Expressions.SqlJoinType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlExpressions.Expressions.SqlJoinExpression"/> class.
+            </summary>
+            <param name="left">The left expression.</param>
+            <param name="right">The right expression.</param>
+            <param name="condition">The "on" condition.</param>
+            <param name="joinType">Type of the join.</param>
+        </member>
+        <member name="T:SqlExpressions.Expressions.SqlJoinType">
+            <summary>
+            Enum representing type of join
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlJoinType.Inner">
+            <summary>
+            The inner
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlJoinType.LeftOuter">
+            <summary>
+            The left outer
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlJoinType.RightOuter">
+            <summary>
+            The right outer
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlJoinType.Full">
+            <summary>
+            The full
+            </summary>
+        </member>
+        <member name="T:SqlExpressions.Expressions.SqlOrderedExpression">
+            <summary>
+            Type representing ordered expression
+            </summary>
+            <seealso cref="T:SqlExpressions.Expressions.SqlExpression" />
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlOrderedExpression.ReturnType">
+            <summary>
+            Gets the return type of the expression.
+            </summary>
+            <value>
+            The type of the return.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlOrderedExpression.ExpressionType">
+            <summary>
+            Gets the type of the expression.
+            </summary>
+            <value>
+            The type of the expression.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlOrderedExpression.InnerExpression">
+            <summary>
+            Gets the inner expression.
+            </summary>
+            <value>
+            The inner expression.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlOrderedExpression.OrderType">
+            <summary>
+            Gets the type of the order.
+            </summary>
+            <value>
+            The type of the order.
+            </value>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlOrderedExpression.Accept``1(SqlExpressions.Expressions.ISqlVisitor{``0})">
+            <summary>
+            Accepts the specified visitor.
+            </summary>
+            <typeparam name="T">Return type</typeparam>
+            <param name="visitor">The visitor.</param>
+            <returns>
+            Returns processed value from expression
+            </returns>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlOrderedExpression.#ctor(SqlExpressions.Expressions.SqlExpression,SqlExpressions.Expressions.OrderType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlExpressions.Expressions.SqlOrderedExpression"/> class.
+            </summary>
+            <param name="innerExpression">The inner expression.</param>
+            <param name="orderType">Type of the order.</param>
+        </member>
+        <member name="T:SqlExpressions.Expressions.SqlParameter">
+            <summary>
+            Type representing sql parameter
+            </summary>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlParameter.Constant">
+            <summary>
+            Gets the constant expression.
+            </summary>
+            <value>
+            The constant.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlParameter.Name">
+            <summary>
+            Gets the name of parameter.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlParameter.#ctor(SqlExpressions.Expressions.SqlConstantExpression,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlExpressions.Expressions.SqlParameter"/> class.
+            </summary>
+            <param name="constant">The constant expression.</param>
+            <param name="name">The name of the parameter.</param>
+        </member>
+        <member name="T:SqlExpressions.Expressions.SqlParameterExpression">
+            <summary>
+            Type representing parameter
+            </summary>
+            <seealso cref="T:SqlExpressions.Expressions.SqlConstantExpression" />
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlParameterExpression.ExpressionType">
+            <summary>
+            Gets the type of the expression.
+            </summary>
+            <value>
+            The type of the expression.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlParameterExpression.Name">
+            <summary>
+            Gets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlParameterExpression.FullType">
+            <summary>
+            Gets the full type.
+            </summary>
+            <value>
+            The full type.
+            </value>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlParameterExpression.#ctor(SqlExpressions.Expressions.SqlType,System.Object,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlExpressions.Expressions.SqlParameterExpression"/> class.
+            </summary>
+            <param name="returnType">Type of the return.</param>
+            <param name="constant">The constant.</param>
+            <param name="name">The name.</param>
+            <param name="fullType">The full type.</param>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlParameterExpression.Accept``1(SqlExpressions.Expressions.ISqlVisitor{``0})">
+            <summary>
+            Accepts the specified visitor.
+            </summary>
+            <typeparam name="T">Return type.</typeparam>
+            <param name="visitor">The visitor.</param>
+            <returns>
+            Returns processed value from expression.
+            </returns>
+        </member>
+        <member name="T:SqlExpressions.Expressions.SqlQueryExpression">
+            <summary>
+            Class representing sql query
+            </summary>
+            <seealso cref="T:SqlExpressions.Expressions.SqlExpression" />
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlQueryExpression.ReturnType">
+            <summary>
+            Gets the return type of the expression
+            </summary>
+            <value>
+            The type of the return.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlQueryExpression.ExpressionType">
+            <summary>
+            Gets the type of the expression.
+            </summary>
+            <value>
+            The type of the expression.
+            </value>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlQueryExpression.Accept``1(SqlExpressions.Expressions.ISqlVisitor{``0})">
+            <summary>
+            Accepts the specified visitor.
+            </summary>
+            <typeparam name="T">Return type</typeparam>
+            <param name="visitor">The visitor.</param>
+            <returns>Returns processed value from expression</returns>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlQueryExpression.Select">
+            <summary>
+            Selected expressions
+            </summary>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlQueryExpression.From">
+            <summary>
+            Source
+            </summary>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlQueryExpression.Where">
+            <summary>
+            Conditions
+            </summary>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlQueryExpression.GroupBy">
+            <summary>
+            Group clauses
+            </summary>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlQueryExpression.Having">
+            <summary>
+            Conditions on grouped
+            </summary>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlQueryExpression.OrderBy">
+            <summary>
+            Order by expressions
+            </summary>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlQueryExpression.Annotations">
+            <summary>
+            Additional annotations
+            </summary>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlQueryExpression.Limit">
+            <summary>
+            Limit query to first results
+            </summary>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlQueryExpression.#ctor(System.Collections.Generic.IEnumerable{SqlExpressions.Expressions.SqlExpression},SqlExpressions.Expressions.SqlExpression,SqlExpressions.Expressions.SqlExpression,System.Collections.Generic.IEnumerable{SqlExpressions.Expressions.SqlExpression},SqlExpressions.Expressions.SqlExpression,System.Collections.Generic.IEnumerable{SqlExpressions.Expressions.SqlExpression},System.Collections.Generic.IEnumerable{SqlExpressions.Expressions.SqlExpression},System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlExpressions.Expressions.SqlQueryExpression"/> class.
+            </summary>
+            <param name="select">The select expressions.</param>
+            <param name="from">Source expression.</param>
+            <param name="where">Condition expression.</param>
+            <param name="groupBy">Group by expressions.</param>
+            <param name="having">Conditions on grouped.</param>
+            <param name="orderBy">Order by expressions.</param>
+            <param name="annotations">Additional annotations.</param>
+            <param name="limit">The limit.</param>
+        </member>
+        <member name="T:SqlExpressions.Expressions.SqlTableExpression">
+            <summary>
+            Type representing table
+            </summary>
+            <seealso cref="T:SqlExpressions.Expressions.SqlExpression" />
+            <seealso cref="T:SqlExpressions.Expressions.ISource" />
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlTableExpression.ReturnType">
+            <summary>
+            Gets the return type of the expression
+            </summary>
+            <value>
+            The type of the return.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlTableExpression.ExpressionType">
+            <summary>
+            Gets the type of the expression.
+            </summary>
+            <value>
+            The type of the expression.
+            </value>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlTableExpression.Accept``1(SqlExpressions.Expressions.ISqlVisitor{``0})">
+            <summary>
+            Accepts the specified visitor.
+            </summary>
+            <typeparam name="T">Return type</typeparam>
+            <param name="visitor">The visitor.</param>
+            <returns>Returns processed value from expression</returns>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlTableExpression.CallName">
+            <summary>
+            Gets the call name of the object (either table name or alias if assigned).
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlTableExpression.TableName">
+            <summary>
+            Gets the name of the table.
+            </summary>
+            <value>
+            The name of the table.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlTableExpression.Alias">
+            <summary>
+            Gets the alias.
+            </summary>
+            <value>
+            The alias.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlTableExpression.Columns">
+            <summary>
+            Gets the columns.
+            </summary>
+            <value>
+            The columns.
+            </value>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlTableExpression.#ctor(System.String,System.Collections.Generic.IEnumerable{SqlExpressions.Expressions.SqlColumnExpression},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlExpressions.Expressions.SqlTableExpression"/> class.
+            </summary>
+            <param name="tableName">Name of the table.</param>
+            <param name="columns">The columns.</param>
+            <param name="alias">The alias.</param>
+        </member>
+        <member name="T:SqlExpressions.Expressions.SqlType">
+            <summary>
+            Type representing SQL type.
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlType.None">
+            <summary>
+            The none.
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlType.Object">
+            <summary>
+            The object.
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlType.Integer">
+            <summary>
+            The integer.
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlType.Decimal">
+            <summary>
+            The decimal.
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlType.Varchar">
+            <summary>
+            The varchar.
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlType.DateTime">
+            <summary>
+            The date time.
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlType.Boolean">
+            <summary>
+            The boolean.
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlType.Xml">
+            <summary>
+            The XML.
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlType.IntegerNull">
+            <summary>
+            The integer null.
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlType.DecimalNull">
+            <summary>
+            The decimal null.
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlType.VarcharNull">
+            <summary>
+            The varchar null.
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlType.DateTimeNull">
+            <summary>
+            The date time null.
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlType.BooleanNull">
+            <summary>
+            The boolean null.
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlType.XmlNull">
+            <summary>
+            The XML null.
+            </summary>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlType.Get(SqlExpressions.Expressions.SqlTypeEnum,System.Boolean)">
+            <summary>
+            Gets the specified type.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="nullable">if set to <c>true</c> [nullable].</param>
+            <returns>Returns type corresponding to type enum, and nullable parameter</returns>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlType.SqlTypeEnum">
+            <summary>
+            Gets the SQL type enum.
+            </summary>
+            <value>
+            The SQL type enum.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlType.Nullable">
+            <summary>
+            Gets a value indicating whether this <see cref="T:SqlExpressions.Expressions.SqlType"/> is nullable.
+            </summary>
+            <value>
+              <c>true</c> if nullable; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlType.TransferObjectId">
+            <summary>
+            Gets the transfer object identifier.
+            </summary>
+            <value>
+            The transfer object identifier.
+            </value>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlType.#ctor(SqlExpressions.Expressions.SqlTypeEnum,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlExpressions.Expressions.SqlType"/> class.
+            </summary>
+            <param name="sqlTypeEnum">The SQL type enum.</param>
+            <param name="nullable">if set to <c>true</c> [nullable].</param>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlType.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlType.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object" />, is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object" /> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlType.op_Equality(SqlExpressions.Expressions.SqlType,SqlExpressions.Expressions.SqlType)">
+            <summary>
+            Implements the operator ==.
+            </summary>
+            <param name="t1">The t1.</param>
+            <param name="t2">The t2.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlType.op_Inequality(SqlExpressions.Expressions.SqlType,SqlExpressions.Expressions.SqlType)">
+            <summary>
+            Implements the operator !=.
+            </summary>
+            <param name="t1">The t1.</param>
+            <param name="t2">The t2.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="T:SqlExpressions.Expressions.SqlTypeEnum">
+            <summary>
+            Enum representing sql type
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlTypeEnum.None">
+            <summary>
+            The none
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlTypeEnum.Object">
+            <summary>
+            The object
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlTypeEnum.Integer">
+            <summary>
+            The integer
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlTypeEnum.Decimal">
+            <summary>
+            The decimal
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlTypeEnum.Varchar">
+            <summary>
+            The varchar
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlTypeEnum.DateTime">
+            <summary>
+            The date time
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlTypeEnum.Boolean">
+            <summary>
+            The boolean
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.SqlTypeEnum.Xml">
+            <summary>
+            The XML
+            </summary>
+        </member>
+        <member name="T:SqlExpressions.Expressions.SqlUnaryExpression">
+            <summary>
+            Type representing any unary expression
+            </summary>
+            <seealso cref="T:SqlExpressions.Expressions.SqlExpression" />
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlUnaryExpression.ReturnType">
+            <summary>
+            Gets the return type of the expression
+            </summary>
+            <value>
+            The type of the return.
+            </value>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlUnaryExpression.ExpressionType">
+            <summary>
+            Gets the type of the expression.
+            </summary>
+            <value>
+            The type of the expression.
+            </value>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlUnaryExpression.Accept``1(SqlExpressions.Expressions.ISqlVisitor{``0})">
+            <summary>
+            Accepts the specified visitor.
+            </summary>
+            <typeparam name="T">Return type</typeparam>
+            <param name="visitor">The visitor.</param>
+            <returns>Returns processed value from expression</returns>
+        </member>
+        <member name="P:SqlExpressions.Expressions.SqlUnaryExpression.Expression">
+            <summary>
+            Gets the inner expression.
+            </summary>
+            <value>
+            The expression.
+            </value>
+        </member>
+        <member name="M:SqlExpressions.Expressions.SqlUnaryExpression.#ctor(SqlExpressions.Expressions.SqlExpressionType,SqlExpressions.Expressions.SqlExpression)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlExpressions.Expressions.SqlUnaryExpression"/> class.
+            </summary>
+            <param name="expressionType">Type of the unary expression.</param>
+            <param name="expression">The inner expression.</param>
+        </member>
+        <member name="T:SqlExpressions.Expressions.TransferObjectId">
+            <summary>
+            Enum representing object type
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.TransferObjectId.ISource">
+            <summary>
+            The ISource
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.TransferObjectId.SqlAliasExpression">
+            <summary>
+            The SQL alias expression
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.TransferObjectId.SqlAnnotation">
+            <summary>
+            The SQL annotation
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.TransferObjectId.SqlBinaryExpression">
+            <summary>
+            The SQL binary expression
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.TransferObjectId.SqlColumnExpression">
+            <summary>
+            The SQL column expression
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.TransferObjectId.SqlConstantExpression">
+            <summary>
+            The SQL constant expression
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.TransferObjectId.SqlJoinExpression">
+            <summary>
+            The SQL join expression
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.TransferObjectId.SqlOrderedExpression">
+            <summary>
+            The SQL ordered expression
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.TransferObjectId.SqlParameterExpression">
+            <summary>
+            The SQL parameter expression
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.TransferObjectId.SqlQueryExpression">
+            <summary>
+            The SQL query expression
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.TransferObjectId.SqlTableExpression">
+            <summary>
+            The SQL table expression
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.TransferObjectId.SqlUnaryExpression">
+            <summary>
+            The SQL unary expression
+            </summary>
+        </member>
+        <member name="F:SqlExpressions.Expressions.TransferObjectId.SqlType">
+            <summary>
+            The SQL type
+            </summary>
+        </member>
+        <member name="T:SqlExpressions.SqlExpressionResolver">
+            <summary>
+            Type responsible for resolving types of SqlExpressions objects.
+            </summary>
+        </member>
+        <member name="M:SqlExpressions.SqlExpressionResolver.Resolve(System.Object)">
+            <summary>
+            Resolving a properly SqlExpression Type for the given object.
+            </summary>
+            <param name="obj">The object.</param>
+            <returns>Returns given object as SqlExpression</returns>
+        </member>
+        <member name="T:SqlExpressions.SqlGenerator">
+            <summary>
+            Type responsible for genereting sql query.
+            </summary>
+            <seealso cref="T:SqlExpressions.Expressions.ISqlVisitor`1" />
+        </member>
+        <member name="T:SqlExpressions.SqlGenerator.SqlConstantBuilder">
+            <summary>
+            Type representing constant expression builder.
+            </summary>
+            <param name="constant">The constant expression.</param>
+            <returns>Returns sql string for constant</returns>
+        </member>
+        <member name="F:SqlExpressions.SqlGenerator.ConstantBuilder">
+            <summary>
+            The constant builder.
+            </summary>
+        </member>
+        <member name="M:SqlExpressions.SqlGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlExpressions.SqlGenerator"/> class.
+            </summary>
+        </member>
+        <member name="M:SqlExpressions.SqlGenerator.GenerateSqlWithParams(SqlExpressions.Expressions.SqlExpression)">
+            <summary>
+            Generates the SQL with parameters.
+            </summary>
+            <param name="expression">The expression.</param>
+            <returns>Tuple with sql query and collection of sql parameters</returns>
+        </member>
+        <member name="M:SqlExpressions.SqlGenerator.GenerateSql(SqlExpressions.Expressions.SqlExpression)">
+            <summary>
+            Generates the SQL, with inserted parameters.
+            </summary>
+            <param name="expression">The expression.</param>
+            <returns>Returns SQL query.</returns>
+        </member>
+        <member name="M:SqlExpressions.SqlGenerator.Visit(SqlExpressions.Expressions.SqlExpression)">
+            <summary>
+            Wrapper method for interface ISqlVisitor.
+            </summary>
+            <param name="sqlExpression">The SQL expression.</param>
+            <returns>Returns generated SQL query for expression.</returns>
+        </member>
+        <member name="M:SqlExpressions.SqlGenerator.SqlExpressions#Expressions#ISqlVisitor{System#String}#Visit(SqlExpressions.Expressions.SqlExpression)">
+            <summary>
+            Visits the specified SQL expression.
+            </summary>
+            <param name="sqlExpression">The SQL expression.</param>
+            <returns>
+            Returns processed value from espression.
+            </returns>
+        </member>
+        <member name="M:SqlExpressions.SqlGenerator.SqlExpressions#Expressions#ISqlVisitor{System#String}#Visit(SqlExpressions.Expressions.SqlBinaryExpression)">
+            <summary>
+            Visits the specified SQL binary expression.
+            </summary>
+            <param name="sqlBinaryExpression">The SQL binary expression.</param>
+            <returns>
+            Returns processed value from espression.
+            </returns>
+        </member>
+        <member name="M:SqlExpressions.SqlGenerator.SqlExpressions#Expressions#ISqlVisitor{System#String}#Visit(SqlExpressions.Expressions.SqlUnaryExpression)">
+            <summary>
+            Visits the specified SQL unary expression.
+            </summary>
+            <param name="sqlUnaryExpression">The SQL unary expression.</param>
+            <returns>
+            Returns processed value from espression.
+            </returns>
+        </member>
+        <member name="M:SqlExpressions.SqlGenerator.SqlExpressions#Expressions#ISqlVisitor{System#String}#Visit(SqlExpressions.Expressions.SqlConstantExpression)">
+            <summary>
+            Visits the specified SQL constant expression.
+            </summary>
+            <param name="sqlConstantExpression">The SQL constant expression.</param>
+            <returns>
+            Returns processed value from espression.
+            </returns>
+        </member>
+        <member name="M:SqlExpressions.SqlGenerator.SqlExpressions#Expressions#ISqlVisitor{System#String}#Visit(SqlExpressions.Expressions.SqlColumnExpression)">
+            <summary>
+            Visits the specified SQL column expression.
+            </summary>
+            <param name="sqlColumnExpression">The SQL column expression.</param>
+            <returns>
+            Returns processed value from espression.
+            </returns>
+        </member>
+        <member name="M:SqlExpressions.SqlGenerator.SqlExpressions#Expressions#ISqlVisitor{System#String}#Visit(SqlExpressions.Expressions.SqlTableExpression)">
+            <summary>
+            Visits the specified SQL table expression.
+            </summary>
+            <param name="sqlTableExpression">The SQL table expression.</param>
+            <returns>
+            Returns processed value from espression.
+            </returns>
+        </member>
+        <member name="M:SqlExpressions.SqlGenerator.SqlExpressions#Expressions#ISqlVisitor{System#String}#Visit(SqlExpressions.Expressions.SqlQueryExpression)">
+            <summary>
+            Visits the specified SQL query expression.
+            </summary>
+            <param name="sqlQueryExpression">The SQL query expression.</param>
+            <returns>
+            Returns processed value from espression.
+            </returns>
+        </member>
+        <member name="M:SqlExpressions.SqlGenerator.SqlExpressions#Expressions#ISqlVisitor{System#String}#Visit(SqlExpressions.Expressions.SqlAnnotation)">
+            <summary>
+            Visits the specified SQL binary expression.
+            </summary>
+            <param name="sqlBinaryExpression">The SQL binary expression.</param>
+            <returns>Returns processed value from espression.</returns>
+            <exception cref="T:System.NotImplementedException">Not implemented yet.</exception>
+        </member>
+        <member name="M:SqlExpressions.SqlGenerator.SqlExpressions#Expressions#ISqlVisitor{System#String}#Visit(SqlExpressions.Expressions.SqlJoinExpression)">
+            <summary>
+            Visits the specified SQL join expression.
+            </summary>
+            <param name="sqlJoinExpression">The SQL join expression.</param>
+            <returns>
+            Returns processed value from espression.
+            </returns>
+        </member>
+        <member name="M:SqlExpressions.SqlGenerator.Visit(SqlExpressions.Expressions.SqlJoinType)">
+            <summary>
+            Visits the specified join type.
+            </summary>
+            <param name="joinType">Type of the join.</param>
+            <returns>Returns processed value from expression.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">joinType - null</exception>
+        </member>
+        <member name="M:SqlExpressions.SqlGenerator.Visit(SqlExpressions.Expressions.SqlAliasExpression)">
+            <summary>
+            Visits the specified SQL alias expression.
+            </summary>
+            <param name="sqlAliasExpression">The SQL alias expression.</param>
+            <returns>
+            Returns processed value from espression.
+            </returns>
+        </member>
+        <member name="M:SqlExpressions.SqlGenerator.Visit(SqlExpressions.Expressions.SqlParameterExpression)">
+            <summary>
+            Visits the specified SQL parameter expression.
+            </summary>
+            <param name="sqlParameterExpression">The SQL parameter expression.</param>
+            <returns>
+            Returns processed value from espression.
+            </returns>
+        </member>
+        <member name="M:SqlExpressions.SqlGenerator.Visit(SqlExpressions.Expressions.SqlOrderedExpression)">
+            <summary>
+            Visits the specified SQL ordered expression.
+            </summary>
+            <param name="sqlOrderedExpression">The SQL ordered expression.</param>
+            <returns>
+            Returns processed value from espression.
+            </returns>
+        </member>
+        <member name="M:SqlExpressions.SqlGenerator.Visit(SqlExpressions.Expressions.OrderType)">
+            <summary>
+            Visits the specified order type.
+            </summary>
+            <param name="orderType">The order type.</param>
+            <returns>
+            Returns processed value from espression.
+            </returns>
+        </member>
+    </members>
+</doc>

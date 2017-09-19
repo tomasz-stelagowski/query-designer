@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+	<DebugType>Full</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard1.4\SqlExpressions.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="SqlExpressionsTests\**" />
+    <EmbeddedResource Remove="SqlExpressionsTests\**" />
+    <None Remove="SqlExpressionsTests\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <MyFiles Include="SqlExpressionsTests">
+      <InProject>false</InProject>
+    </MyFiles>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Dynamic.Runtime" Version="4.3.0" />
+  </ItemGroup>
+</Project>

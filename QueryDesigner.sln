@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Website", "Website\Website.csproj", "{6F846937-6455-413D-A925-CEF29730EDD4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlExpressions", "SqlExpressions\SqlExpressions.csproj", "{C63EAF4E-C916-42CE-8B8A-5DC35D0DD361}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlExpressionsTests", "SqlExpressions\SqlExpressionsTests\SqlExpressionsTests.csproj", "{F1309152-03F8-4573-96FC-D03F8FFC5991}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SqlExpressions", "SqlExpressions", "{ECA80DA8-4E09-4C18-A146-F12C298EFD81}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F846937-6455-413D-A925-CEF29730EDD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F846937-6455-413D-A925-CEF29730EDD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F846937-6455-413D-A925-CEF29730EDD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F846937-6455-413D-A925-CEF29730EDD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C63EAF4E-C916-42CE-8B8A-5DC35D0DD361}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C63EAF4E-C916-42CE-8B8A-5DC35D0DD361}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C63EAF4E-C916-42CE-8B8A-5DC35D0DD361}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C63EAF4E-C916-42CE-8B8A-5DC35D0DD361}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1309152-03F8-4573-96FC-D03F8FFC5991}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1309152-03F8-4573-96FC-D03F8FFC5991}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1309152-03F8-4573-96FC-D03F8FFC5991}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1309152-03F8-4573-96FC-D03F8FFC5991}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C63EAF4E-C916-42CE-8B8A-5DC35D0DD361} = {ECA80DA8-4E09-4C18-A146-F12C298EFD81}
+		{F1309152-03F8-4573-96FC-D03F8FFC5991} = {ECA80DA8-4E09-4C18-A146-F12C298EFD81}
+	EndGlobalSection
+EndGlobal

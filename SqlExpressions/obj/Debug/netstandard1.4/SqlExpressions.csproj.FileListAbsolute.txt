@@ -1,0 +1,7 @@
+C:\Users\Tomasz\OneDrive\Documents\Studia\Informatyka\IO\QueryDeveloper\query-designer\SqlExpressions\bin\Debug\netstandard1.4\SqlExpressions.deps.json
+C:\Users\Tomasz\OneDrive\Documents\Studia\Informatyka\IO\QueryDeveloper\query-designer\SqlExpressions\bin\Debug\netstandard1.4\SqlExpressions.xml
+C:\Users\Tomasz\OneDrive\Documents\Studia\Informatyka\IO\QueryDeveloper\query-designer\SqlExpressions\bin\Debug\netstandard1.4\SqlExpressions.dll
+C:\Users\Tomasz\OneDrive\Documents\Studia\Informatyka\IO\QueryDeveloper\query-designer\SqlExpressions\bin\Debug\netstandard1.4\SqlExpressions.pdb
+C:\Users\Tomasz\OneDrive\Documents\Studia\Informatyka\IO\QueryDeveloper\query-designer\SqlExpressions\obj\Debug\netstandard1.4\SqlExpressions.AssemblyInfo.cs
+C:\Users\Tomasz\OneDrive\Documents\Studia\Informatyka\IO\QueryDeveloper\query-designer\SqlExpressions\obj\Debug\netstandard1.4\SqlExpressions.dll
+C:\Users\Tomasz\OneDrive\Documents\Studia\Informatyka\IO\QueryDeveloper\query-designer\SqlExpressions\obj\Debug\netstandard1.4\SqlExpressions.pdb
