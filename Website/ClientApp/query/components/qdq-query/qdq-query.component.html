@@ -1,0 +1,87 @@
+<div class="qdq_wrapper">
+    <div class="qdq_joined">
+        <div *ngFor="let source of (query.getSourceTables()); let i of index">
+            <span class="text-label-white">{{ source.getAliasOrName() }}</span>
+        </div>
+    </div>
+    <div class="qdq_table">
+        <div class="qdq_title-handler no-grow">
+            <span class="tx no-child">{{ query.getAliasOrName() || "< NEW TABLE >" }}</span>
+            <span class="fn-right tx tx-sm">
+                <span (click)="changeQueryName()" title="Change Name" class="icon icon-pencil clickable"></span>
+                <span (click)="showExpression()" title="Show SQL" class="icon icon-info clickable"></span>
+                <span (click)="clearQuery()" title="Clear" class="icon icon-cross clickable"></span>
+                <span (click)="saveQuery()" title="Save" class="icon icon-floppy-disk clickable"></span>
+            </span>
+        </div>
+
+        <!-- Columns -->
+
+        <div class="qdq_modifier">
+            <div class="qdq_title-handler"><span class="tx">SELECTED COLUMNS</span></div>
+            <div *ngFor="let column of (query.getColumns()); let i = index" class="qdq_modifiers-options">
+                <div class="qdq_option-handler">
+                    <span class="tx" title="{{ column.name }}">{{ column.simpleName }}</span>
+                    <span class="fn-right tx tx-sm"><span (click)="removeColumn(i)" class="icon icon-cross clickable" title="Remove Column"></span></span>
+                </div>
+            </div>
+            <div (click)="addColumn()" class="qdq_add-option clickable" title="Add a New Column">
+                <span class="text-small-label-white">New Field</span>
+            </div>
+        </div>
+
+        <!-- End of columns -->
+        <!-- Limits -->
+        <div *ngIf="query.getLimits().length > 0" class="qdq_modifier">
+            <div class="qdq_title-handler"><span class="tx">LIMITS</span></div>
+            <div *ngFor="let limit of (query.getLimits()); let i = index" class="qdq_modifiers-options">
+                <div class="qdq_option-handler">
+                    <span class="tx">{{ limit.name }} {{ limit.value }}</span>
+                    <span class="fn-right tx tx-sm">
+                        <span (click)="editLimit(limit)" class="icon icon-pencil clickable" title="Edit Limit Value"></span>
+                        <span (click)="removeLimit(i)" class="icon icon-cross clickable" title="Remove Limit"></span>
+                    </span>
+                </div>
+            </div>
+            <!-- <div class="qdq_add-option clickable">
+                <span class="text-small-label-white">New Field</span>
+            </div> -->
+        </div>
+        <!-- End of Limits -->
+        <!-- Filters -->
+        <div *ngIf="query.getFilters().length > 0" class="qdq_modifier">
+            <div class="qdq_title-handler"><span class="tx">FILTERS</span></div>
+            <div *ngFor="let filter of (query.getFilters()); let i = index" class="qdq_modifiers-options">
+                <div class="qdq_option-handler">
+                    <span class="tx" title="{{ filter.message }}">{{ filter.simpleMessage }}</span>
+                    <span class="fn-right tx tx-sm">
+                        <span (click)="editFilter(filter, i)" class="icon icon-pencil clickable" title="Edit Limit Value"></span>
+                        <span (click)="removeFilter(i)" class="icon icon-cross clickable" title="Remove Filter"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="qdq_add-option clickable">
+                <span class="text-small-label-white" (click)="addFilter()">New Filter</span>
+            </div>
+        </div>
+        <!-- End of Filters -->
+        <!-- Sorting -->
+        <div *ngIf="query.getOrders().length > 0" class="qdq_modifier">
+            <div class="qdq_title-handler"><span class="tx">SORTING</span></div>
+            <div *ngFor="let order of (query.getOrders()); let i = index" class="qdq_modifiers-options">
+                <div class="qdq_option-handler">
+                    <span class="tx" title="{{ order.column.name+' '+order.orderTypeName }}">{{ order.message }}</span>
+                    <span class="fn-right tx tx-sm">
+                        <span (click)="editOrder(order, i)" class="icon icon-pencil clickable" title="Edit Limit Value"></span>
+                        <span (click)="removeOrder(i)" class="icon icon-cross clickable" title="Remove Filter"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="qdq_add-option clickable">
+                <span class="text-small-label-white" (click)="addOrder()">New Sorting</span>
+            </div>
+        </div>
+        <!-- End of Sorting -->
+
+    </div>
+</div>

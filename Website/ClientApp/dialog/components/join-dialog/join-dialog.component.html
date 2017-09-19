@@ -1,0 +1,21 @@
+<div class="join-wrapper">
+    <div class="page-wrapper parameters">
+        <join-parameters [tableJoiner]="tableJoiner" [currentTable]="currentTable" [changeDetector]="changeEventEmitter"></join-parameters>
+    </div>
+    <div class="page-wrapper order">
+        <join-order [tableJoiner]="tableJoiner" [currentTable]="currentTable" (moveTableUp)="moveTableUp($event)" (removeTable)="removeTable($event)" (editTable)="editTable($event)" (moveTableDown)="moveTableDown($event)"></join-order>
+    </div>
+</div>
+<div class="join-buttons">
+    <div class="join-buttons-holder">
+        <div>
+            <div *ngIf="tableJoiner.validate()" (click)="saveButton()" class="fn-center select-button clickable tx tx-dark"> SAVE </div>
+        </div>
+        <div *ngIf="!tableJoiner.validate()">
+            <span class="error_message tx">*Fullfill all requirements (marked red), to save.</span>
+        </div>
+        <div>
+            <div (click)="cancelButton()" class="fn-center select-button clickable tx tx-dark"> CANCEL </div>
+        </div>
+    </div>
+</div>

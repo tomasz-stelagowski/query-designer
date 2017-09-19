@@ -1,0 +1,4 @@
+<div class="error_message" *ngIf="errorsPresent">
+    <div class="error_content" *ngIf="required">*This field is required</div>
+    <div class="error_content" *ngFor="let err of errors">*{{err}}</div>
+</div>

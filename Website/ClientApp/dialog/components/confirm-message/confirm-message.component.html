@@ -1,0 +1,8 @@
+﻿<h2 md-dialog-title>Confirm</h2>
+<md-dialog-content>
+    {{message}}
+</md-dialog-content>
+<md-dialog-actions>
+    <button md-button (click)="dialogRef.close(true)">Confirm</button>
+    <button md-button (click)="dialogRef.close(false)">Cancel</button>
+</md-dialog-actions>

@@ -1,0 +1,27 @@
+<div class="qd_filter-wrapper">
+    <div class="qd_filter-header qd_filter-section">
+        <span class="tx tx-lg tx-dark ">{{ title }}</span>
+    </div>
+    <div class="qd_filter-section">
+        <form [formGroup]="myForm">
+            <error-tooltip [validationErrors]="myForm.controls.select.errors"></error-tooltip>
+            <qd-select *ngIf="selectList.length != 1" formControlName="select" [(ngModel)]="selectValue" [optionList]="selectList"></qd-select>
+            <div *ngIf="selectList.length == 1" class="qd_filter-handler">
+                <span class="tx tx-dark fn-center"> {{ selectList[0].message }} </span>
+            </div>
+            <div class="spacer"></div>
+            <error-tooltip [validationErrors]="myForm.controls.orderBy.errors"></error-tooltip>
+            <qd-select formControlName="orderBy" [(ngModel)]="orderByValue" [optionList]="orderByList"></qd-select>
+        </form>
+    </div>
+    <div class="qd_filter-section">
+        <div class="qd_filter-buttons-holder">
+            <div>
+                <div (click)="popupSave()" class="fn-center qd_filter-button clickable tx tx-dark"> SAVE </div>
+            </div>
+            <div>
+                <div (click)="popupCancel()" class="fn-center qd_filter-button clickable tx tx-dark"> CANCEL </div>
+            </div>
+        </div>
+    </div>
+</div>

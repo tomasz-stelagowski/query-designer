@@ -1,0 +1,21 @@
+<div class="order-wrapper">
+    <div class="qd_join-section-header">
+        <span class="tx tx-xlg tx-dark">Order of JOINed tables</span>
+    </div>
+    <div class="order-scroll-box">
+        <div class="scroll-content-wrapper">
+            <div class="content-wrapper">
+                <div *ngFor="let table of tableJoiner.getSourceTables(); index as i; first as first; last as last" class="table" [ngClass]="{ 'validationBorder': !tableJoiner.validateTable(i), 'nowEditable': (currentTable == i)}" (click)="editTable(i)" title="Click to edit table parameters">
+                    <div class="table-name" [ngClass]="{'clickable': (!first)}" >
+                        <span class="tx tx-lg">{{ table.getAliasOrName() }}</span>
+                    </div>
+                    <div class="controls-wrapper">
+                        <div class="icon-wrapper"><span class="tx icon icon-arrow-up" [ngClass]="{'clickable': !first, 'tx-dark': first}" title="Move table up" (click)="moveTableUp(i)"></span></div>
+                        <div *ngIf="!first" class="icon-wrapper"><span class="tx icon icon-cross clickable" title="Delete join table" (click)="removeTable(i)"></span></div>
+                        <div class="icon-wrapper"><span class="tx icon icon-arrow-down" [ngClass]="{'clickable': !last, 'tx-dark': last}" title="Move table down" (click)="moveTableDown(i)"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

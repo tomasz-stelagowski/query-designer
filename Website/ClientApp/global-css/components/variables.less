@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+body
+{
+    font-family: 'Lato';
+    font-size: 0;
+
+    background-color: black;
+}
+
+div
+{
+    box-sizing: border-box;
+}
+
+.clickable
+{
+    cursor: pointer;
+}
+
+.clickable.icon:hover::before, .clickable:not(.button):hover {
+    text-shadow: 0 0 10px #005aff;
+}
+
+.qd_checkbox-hack
+{
+    display: none;
+}
+
+/* legacy fonts */
+.text-submenu
+{
+    font-size: 16px;
+    font-weight: lighter;
+
+    color: #979aa3;
+}
+
+.text-menu-light
+{
+    font-size: 16px;
+
+    color: #dbdcdf;
+}
+
+.text-menu-dark
+{
+    font-size: 16px;
+    font-weight: bold;
+
+    color: #686d76;
+}
+
+.text-label-white
+{
+    font-size: 12px;
+
+    color: white;
+}
+
+.text-small-label-white
+{
+    font-size: 8px;
+
+    color: white;
+}
+
+.text-input-header
+{
+    font-size: 16px;
+
+    color: #686d76;
+}
+
+/* new fonts */
+.no-grow > .no-child
+{
+    max-width: 100%;
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.no-grow:after{
+    content: '';
+    font-size: 12px;
+    clear: both;
+    height: 100%;
+    display: block;
+}
+
+.tx
+{
+    font-family: Lato;
+    font-size: 12px;
+
+    color: white;
+}
+
+.tx-res
+{
+    font-size: 0px;
+}
+
+.tx-lg
+{
+    font-size: 16px;
+}
+.tx-xlg
+{
+    font-size: 20px;
+}
+.tx-sm
+{
+    font-size: 8px;
+}
+.tx-dark
+{
+    color: #686d76;
+}
+
+.tx-light
+{
+    color: #dbdcdf;
+}
+
+
+/* inline positioning */
+
+.fn-left
+{
+    float: left;
+}
+
+.fn-right
+{
+    float: right;
+}
+
+.fn-center
+{
+    position: absolute;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.fn-left:after,
+.fn-right:after
+{
+    clear: both;
+}
+
+
+/*scroll bars */
+
+::-webkit-scrollbar
+{
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track
+{
+    -webkit-border-radius: 10px;
+            border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb
+{
+    -webkit-border-radius: 10px;
+            border-radius: 10px;
+    background: #cacdd4;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.5);
+}
+
+
+
+.spacer{
+    border: none;
+    margin: 10px 0;
+}

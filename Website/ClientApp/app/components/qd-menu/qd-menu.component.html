@@ -1,0 +1,65 @@
+<div class="qd_menu">
+    <div class="qd_menu-body">
+        <input class="qd_checkbox-hack" name="qd_main-menu" type="radio" id="none-selected">
+        <input class="qd_checkbox-hack" name="qd_main-menu" type="radio" id="tables">
+        <div class="qd_menu-element-wrapper">
+            <div class="qd_menu-title">
+                <label class="clickable qd_select" for="tables" title="Expand Tables List">TABLES</label>
+                <label class="clickable qd_un-select" for="none-selected" title="Collapse Tables List">TABLES</label>
+            </div>
+            <div class="qd_menu-element">
+                <div class="qd_menu-list">
+                    <div *ngFor="let table of tables" (click)="addTable(table)" class="clickable qd_menu-subelement" title="Add a Source Table">
+                        {{ table.getAliasOrName() }}
+                        <span class="fn-right icon icon-plus text-small-label-white"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <input *ngIf="userTables.length > 0" class="qd_checkbox-hack" name="qd_main-menu" type="radio" id="zapisane">
+        <div class="qd_menu-element-wrapper" *ngIf="userTables.length > 0">
+            <div class="qd_menu-title">
+                <label class="clickable qd_select" for="zapisane">USER TABLES</label>
+                <label class="clickable qd_un-select" for="none-selected">USER TABLES</label>
+            </div>
+            <div class="qd_menu-element">
+                <div class="qd_menu-list">
+                    <div *ngFor="let table of userTables; let i = index" class="clickable qd_menu-subelement" (click)="addTable(table)">
+                        {{ table.getAliasOrName() }}
+                        <span class="fn-right">
+                            <span class="icon icon-plus text-small-label-white clickable"></span><span class="icon icon-cross text-small-label-white clickable" (click)="removeUserTable(i)"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <input class="qd_checkbox-hack" name="qd_main-menu" type="radio" id="limity">
+        <div class="qd_menu-element-wrapper">
+            <div class="qd_menu-title">
+                <label class="clickable qd_select" for="limity" title="Expand Limits and Modificators List">LIMITS & MODIFICATORS</label>
+                <label class="clickable qd_un-select" for="none-selected" title="Collapse Limits and Modificators List">LIMITS & MODIFICATORS</label>
+            </div>
+            <div class="qd_menu-element">
+                <div class="qd_menu-list">
+                    <div *ngFor="let limit of limits" class="clickable qd_menu-subelement" title="Add Limit/Modificator" (click)="addLimit(limit)">
+                        {{ limit.name }}
+                        <span class="fn-right icon icon-plus text-small-label-white clickable"></span>
+                    </div>
+                    <div class="clickable qd_menu-subelement" title="Add data filtering" (click)="addFilter()">
+                        FILTER
+                        <span class="fn-right icon icon-plus text-small-label-white clickable"></span>
+                    </div>
+                    <div class="clickable qd_menu-subelement" title="Add data sorting" (click)="addOrder()">
+                        SORT
+                        <span class="fn-right icon icon-plus text-small-label-white clickable"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="qd_menu-search">
+        <input #search (keyup)="0" class="qd_menu-search-input text-label-white">
+    </div>
+</div>

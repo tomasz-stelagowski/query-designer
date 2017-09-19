@@ -1,0 +1,15 @@
+bin/*
+obj/*
+
+# Visual Studio files
+Properties/*
+
+# Npm modules
+node_modules/*
+
+# Files generates by webpack
+ClientApp/dist/*
+wwwroot/dist/*
+
+# Documentation generates by typedoc
+documentation/*

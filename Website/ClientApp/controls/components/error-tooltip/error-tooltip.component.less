@@ -1,0 +1,24 @@
+/* Validators */
+.error_message{
+    //border: 1px red solid;
+}
+.error_message:before{
+    font-size: 8px;
+    color: red;
+    postion: absolute;
+    top: -12px;
+    left: 0;
+    display: block;
+}
+.error_content{
+    font-size: 8px;
+    color: red;
+    postion: absolute;
+    top: -12px;
+    left: 0;
+    display: none;
+}
+
+.error_message >.error_content{
+    display: block;
+}

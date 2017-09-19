@@ -1,0 +1,21 @@
+<div class="qd_select-wrapper">
+    <div class="qd_select-header qd_select-section">
+        <span class="tx tx-lg tx-dark ">{{ title }}</span>
+    </div>
+    <div class="qd_select-section">
+        <form [formGroup]="myForm">
+            <error-tooltip [validationErrors]="myForm.controls.select.errors"></error-tooltip>
+            <qd-select formControlName="select" [optionList]="optionList" [float]="false" [(ngModel)]="_selected"></qd-select>
+        </form>
+    </div>
+    <div class="qd_select-section">
+        <div class="qd_select-buttons-holder">
+            <div>
+                <div (click)="popupSave()" class="fn-center qd_select-button clickable tx tx-dark"> SAVE </div>
+            </div>
+            <div>
+                <div (click)="popupCancel()" class="fn-center qd_select-button clickable tx tx-dark"> CANCEL </div>
+            </div>
+        </div>
+    </div>
+</div>

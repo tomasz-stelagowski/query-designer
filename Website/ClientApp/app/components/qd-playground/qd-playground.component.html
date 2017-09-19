@@ -1,0 +1,12 @@
+<div class="qd_playground">
+    <div class="qd_playground-tile">
+        <qdq-query *ngFor="let table of tables" [query]="table" (save)="tableSave($event)" (clear)="clearTable()">
+            loading table
+        </qdq-query>
+
+        <div class="qd_empty-holder" *ngIf="tables.length < 1">
+            <span class="tx tx-dark qd_empty-holder">ADD TABLE</span>
+        </div>
+
+    </div>
+</div>

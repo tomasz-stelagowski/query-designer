@@ -1,0 +1,8 @@
+<div class="qd_select-wrapper" [ngClass]="{'unfolded': unfolded}">
+    <div class="qd_select-label tx-dark">
+        <div class="qd_folded tx tx-dark clickable" (click)="toogleFold()"> {{ !!value ? value.message : '-' }} </div>
+    </div>
+    <div [ngClass]="{'qd_select-list': true, 'float': !!float}">
+        <div *ngFor="let option of optionList" (click)="selectOption(option)" class="qd_select-option tx tx-dark clickable"> {{ option.message }} </div>
+    </div>
+</div>

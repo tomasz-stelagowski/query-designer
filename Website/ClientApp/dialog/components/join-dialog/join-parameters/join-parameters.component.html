@@ -1,0 +1,32 @@
+<div *ngIf="tableJoiner.getSourceTables().length>1" class="qd_join-wrapper">
+    <div class="qd_join-section-header">
+        <span class="tx tx-xlg tx-dark">Edit parameters of {{ this.tableJoiner.joinedSources[this.currentTable].getJoinedTable().getAliasOrName().toUpperCase() }}</span>
+    </div>
+    <div class="qd_join-section-type">
+        <div class="qd_join-type-holder">
+            <div *ngFor="let tile of images" class="qd_type-tile clickable {{ tile.type == this.tableJoiner.getConditionType(this.currentTable) ? 'selected' : '' }}" title="{{ tile.value }}" (click)="selectType(tile.type)">
+                <img src="{{tile.url}}" />
+            </div>
+        </div>
+    </div>
+    <div class="    ">
+        <div class="qd_join-on-select">
+            <div class="qd_select-handlers qd_select-base-handler">
+                <qd-select #selectBase [optionList]="possibleBaseColumns" [float]="true" [(ngModel)]="baseSelectValue" (ngModelChange)="onBaseSelected($event)"></qd-select>
+            </div>
+            <div class="qd_select-handlers qd_select-operation-handler">
+                <span class="tx tx-dark tx-xlg"> = </span>
+            </div>
+            <div class="qd_select-handlers qd_select-joinee-handler">
+                <qd-select #selectJoinee [optionList]="possibleJoineeColumns" [float]="true" [(ngModel)]="joineeSelectValue" (ngModelChange)="addCondition()"></qd-select>
+            </div>
+        </div>
+        <div class="qd_join-on" [ngClass]="{'error_message': !tableJoiner.validateConitions(currentTable)}">
+            <div class="tx tx-dark">JOIN Conditions:</div>
+            <div class="qd_join-conditions-list">
+                <div *ngFor="let condition of tableJoiner.getConditons(currentTable); let i=index" class="tx tx-dark qd_join-condition" [ngClass]="{'error_message': !tableJoiner.validateCondition(currentTable, i)}" >{{ condition.left.message }} = {{ condition.right.message }}  <span class="icon icon-cross clickable tx tx-dark" (click)="removeCondition(i)"></span></div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

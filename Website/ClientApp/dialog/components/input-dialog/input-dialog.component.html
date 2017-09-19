@@ -1,0 +1,21 @@
+<div class="qd_input-wrapper">
+    <div class="qd_input-header qd_input-section">
+        <span class="tx tx-lg tx-dark ">{{ title }}</span>
+    </div>
+    <div class="qd_input-section">
+        <form [formGroup]="myForm">
+            <error-tooltip [validationErrors]="myForm.controls.input.errors"></error-tooltip>
+            <qd-input formControlName="input" [(ngModel)]="inputsValue" [placeholder]="placeholder"></qd-input>
+        </form>
+    </div>
+    <div class="qd_input-section">
+        <div class="qd_input-buttons-holder">
+            <div>
+                <div (click)="popupSave()" class="fn-center qd_input-button clickable tx tx-dark"> SAVE </div>
+            </div>
+            <div>
+                <div (click)="popupCancel()" class="fn-center qd_input-button clickable tx tx-dark"> CANCEL </div>
+            </div>
+        </div>
+    </div>
+</div>
